@@ -1,6 +1,8 @@
+/*************  ✨ Codeium Command 🌟  *************/
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 using namespace std;
 
 class Books{
@@ -47,6 +49,12 @@ int main(){
 
     do {
         cout << "Enter your choice (1. Add Books, 2. Display Books, 4. Exit): ";
+        if (!(cin >> choice)) {
+            cout << "Error: Invalid choice" << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         cin >> choice;
         cin.ignore();
 
@@ -62,6 +70,12 @@ int main(){
                     cout << "Enter the genre: ";
                     getline(cin, genre);
                     cout << "Enter the rating: ";
+                    if (!(cin >> rating)) {
+                        cout << "Error: Invalid rating" << endl;
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        break;
+                    }
                     cin >> rating;
                     cin.ignore();
 
@@ -82,6 +96,7 @@ int main(){
                 cout << "Exiting..." << endl;
                 break;
             default:
+                cout << "Error: Invalid choice" << endl;
                 cout << "Invalid choice" << endl;
         }
     } while (choice != 4);
@@ -90,3 +105,5 @@ int main(){
 }
 
 
+
+/******  c7bfff83-69da-4624-a230-154651622190  *******/
